@@ -20,7 +20,9 @@ diceEl.classList.add("hidden");
 const scores = [0,0]
 let currentScore = 0;
 let activePlayer = 0;
+let playing = true;
 
+// Switch Player Function
 const switchPlayer = function (){
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
@@ -48,22 +50,31 @@ function diceRoll() {
     } else { switchPlayer() }
 }
 
+// Button Roll Event Listener
 btnRoll.addEventListener('click',diceRoll)
 
 // Hold Score Functionality
-
 function holdScore () {
     scores[activePlayer] += currentScore;
     // scores[1] = scores[1] + currentScore;
     document.getElementById(`score--${activePlayer}`).textContent = scores[activePlayer];
     
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 20) {
+        playing === false;
+        diceEl.classList.add('hidden')
+        btnRoll.classList.add('hidden')
+        btnHold.classList.add('hidden')
         document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
         document.querySelector(`.player--${activePlayer}`).classList.remove('player--active')
     } else {
-
         switchPlayer()
     }
 }
-
+// Hold Score Event Listener
 btnHold.addEventListener('click', holdScore)
+
+// New Game Functionality
+
+function newGame(){
+    // 1. Zero Out Current Score
+}
