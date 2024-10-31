@@ -27,7 +27,6 @@ const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
-  console.log(activePlayer, "Player Switched");
   player0El.classList.toggle("player--active");
   player1El.classList.toggle("player--active");
 };
@@ -36,7 +35,6 @@ const switchPlayer = function () {
 function diceRoll() {
   // 1. Generate a random dice roll
   const dice = Math.trunc(Math.random() * 6) + 1;
-  console.log(dice);
   // 2. Display Dice
   diceEl.classList.remove("hidden");
   diceEl.src = `dice-${dice}.png`;
@@ -91,7 +89,6 @@ let newGame = function () {
   currentScore = 0;
   activePlayer = 0;
   playing = true;
-  //   console.log("New Game Initiated");
   // 2. Reset Winner Status
   player0El.classList.remove("player--winner");
   player1El.classList.remove("player--winner");
