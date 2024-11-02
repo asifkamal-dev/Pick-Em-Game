@@ -1,2 +1,2 @@
-# pig-game
+# Pick-Em-Game
 Studying Deeping Knowledge of JavaScript
